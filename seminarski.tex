@@ -1,31 +1,30 @@
 \documentclass[a4paper, 14pt]{article}
+
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{fancyhdr}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
-\renewcommand{\contentsname}{Sadr\v zaj}
+\renewcommand{\contentsname}{Sadržaj}
 
 \pagestyle{fancy}
 \fancyhead[r]{\large{\thepage}}
 \fancyfoot{}
 
-\newtheorem{example}{Primjer}
-
 \begin{document}
-
 \begin{titlepage}
 \raggedright
 \rule{1pt}{\textheight}
 \hspace{0.05\textwidth}
 \parbox[b]{0.75\textwidth}{
 
-{\large{Prirodno-matemati\v cki fakultet\\
+{\large{Prirodno-matematički fakultet\\
 Univerzitet u Tuzli\\
 Odsjek: \textbf{Matematika}\\
 Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
 {\Huge\bfseries Skupovi}\\[1\baselineskip]
 {\large\textit{-seminarski rad-}}\\[5\baselineskip]
-{\Large\textsc{halilovi\' c adis}}
+{\Large\textsc{halilović adis}}
 
 \vspace{0.5\textheight}
 
@@ -37,37 +36,44 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
 \thispagestyle{empty}
 \newpage
 
-\section{Poglavlje}
+\section{Skupovi}
 
-\begin{center}
-\huge{\textbf{Skupovi}}\\[\baselineskip]
-\end{center}
 \begin{Large}
-Jedan od osnovnih ljudskih nagona jeste da sortira i klasificira stvari. Razmislite, naprimjer. Koliko razli\v citih skupova ste vi \v clan? Ako krenete sa nekim jednostavnim kategorijama, kao jeste li mu\v sko ili \v zensko, va\v sa starosna grupa, dr\v zava u kojoj \v zivite. Tada \v cete mo\v zda razmi\v sljati i o etni\v koj pripadnosti va\v se porodice, sociolo\v sko-ekonomskoj grupi, nacionalnosti. Ovo su samo neke od mnogobrojnih na\v cina kako bi mogli opisati sebe drugim ljudima.
+Jedan od osnovnih ljudskih nagona jeste da sortira i klasificira stvari. Razmislite, naprimjer. Koliko različitih skupova ste vi član? Ako krenete sa nekim jednostavnim kategorijama, kao jeste li muško ili žensko, vaša starosna grupa, država u kojoj živite. Tada ćete možda razmišljati i o etničkoj pripadnosti vaše porodice, sociološko-ekonomskoj grupi, nacionalnosti. Ovo su samo neke od mnogobrojnih načina kako bi mogli opisati sebe drugim ljudima.
 
-Kakva je korist od ovakve kategorizacije? Kao \v sto \v cete vidjeti u nastavku ovog poglavlja, sortiraju\v ci stvari po skupovima poma\v ze vam organizirati i urediti va\v s svijet. U mogu\v cnosti ste da vladate velikim koli\v cinama informacija. Skupovi su u\v cevni alat koji poma\v ze da se odgovori na pitanje: "Koje su karakteristike grupe?"
+Kakva je korist od ovakve kategorizacije? Kao što ćete vidjeti u nastavku ovog poglavlja, sortirajući stvari po skupovima pomaže vam organizirati i urediti vaš svijet. U mogućnosti ste da vladate velikim količinama informacija. Skupovi su učevni alat koji pomaže da se odgovori na pitanje: "Koje su karakteristike grupe?"
 
-Skupovi postavljaju temelje ostalim matemati\v kim oblastima, poput logike i apstraktne algebre. Ustvari, knjiga \textit{El\' ements de Math\' ematique}, napisana od strane grupe francuskog matemati\v cara pod pseudonimom "Nicolas Bourbaki", ka\v ze: "U dana\v snjici je mogu\' ce, logi\v cki govore\' ci: "U dana\v snjici je mogu\v ce, logi\v cki re\v ceno, "
+Skupovi postavljaju temelje ostalim matematičkim oblastima, poput logike i apstraktne algebre. Ustvari, knjiga \textit{El\' ements de Math\' ematique}, napisana od strane grupe francuskog matematičara pod pseudonimom "Nicolas Bourbaki", kaže: "U današnjici je moguće, logički govoreći: "U današnjici je moguće, logički rečeno, "
 
 \vfill
-\noindent\fbox{\parbox{\textwidth}{Skupovi su osnovni alat za u\v cenje pa \v cak i za malu djecu. Kao bebe, oni nau\v ce razlikovati "mene" od "mama" i "tata". Kao mali\v sani nau\v ce razlikovati i kategorisati objekte kao \v clanove skupa po veli\v cini, boji, ili obliku. TV emisija "Ulice sezama" u\v ci djecu da prave skupove kroz igru. "Jedna od tih stvari je razli\v cita od ostalih."}}
+\noindent\fbox{\parbox{\textwidth}{Skupovi su osnovni alat za učenje pa čak i za malu djecu. Kao bebe, oni nauče razlikovati "mene" od "mama" i "tata". Kao mališani nauče razlikovati i kategorisati objekte kao članove skupa po veličini, boji, ili obliku. TV emisija "Ulice sezama" uči djecu da prave skupove kroz igru. "Jedna od tih stvari je različita od ostalih."}}
 \end{Large}
 
 \newpage
 \subsection{Koncepti skupa}
 
-Svakodnevno sre\' cemo skupove u na\v sim \v zivotima u raznim situacijama. Skup je kolekcija objekata, koji se nazivaju \textbf{elementi} ili \textbf{\v clanovi} skupa. Naprimjer, Sjedinjena Ameri\v ka dr\v zava je kolekcija ili skup 50 manjih dr\v zava. 50 pojedinih dr\v zava su \v clanovi ili elementi jednog skupa koji se naziva Sjedinjene Ameri\v cke dr\v zave.
-Skup je \textbf{dobro definisan} ako se njegov sadr\v zaj mo\v ze jasno odrediti. Skup trenutnih sudija koji slu\v ze SAD vrhovnom sudu je dobro definisan skup jer njihovi \v clanovi i sudije mogu biti imenovani. Skup tri najbolja auta nije dobro definisan skup jer rije\v c \textit{najbolji} razli\v citi ljudi razli\v cito tuma\v ce. U ovom tekstu, mi koristimo samo dobro definisane skupove.
+Svakodnevno srešemo skupove u našim životima u raznim situacijama. Skup je kolekcija objekata, koji se nazivaju \textbf{elementi} ili \textbf{članovi} skupa. Naprimjer, Sjedinjena Američka država je kolekcija ili skup 50 manjih država. 50 pojedinih država su članovi ili elementi jednog skupa koji se naziva Sjedinjene Američke države.
+Skup je \textbf{dobro definisan} ako se njegov sadržaj može jasno odrediti. Skup trenutnih sudija koji služe SAD vrhovnom sudu je dobro definisan skup jer njihovi članovi i sudije mogu biti imenovani. Skup tri najbolja auta nije dobro definisan skup jer riječ \textit{najbolji} različiti ljudi različito tumače. U ovom tekstu, mi koristimo samo dobro definisane skupove.
 
-Za ozna\v cavanje skupa obi\v cno se koriste sljede\v ce tri metode:
+Za označavanje skupa obično se koriste sljedeće tri metode:
 \begin{center}
 opis\\
 popis ili obrazac\\
 notacija skupa
 \end{center}
-Na\v cin ozna\v cavanja skupa \textbf{opisom} prikazan je u primjeru 1.
-\begin{example}
+Način označavanja skupa \textbf{opisom} prikazan je u primjeru 1.\\
 
-\end{example}
+Smještanje elemenata skupa unutar velikih zagrada "\{ \}", naziva se ruster forma. Zagrade su bitan dio notacije jer ona označavaju članove skupa.\\
+Naprimjer, \{1, 2, 3\} predstavlja notaciju za skup kojem pripadaju elemnti 1, 2 i 3, ali (1, 2, 3) i [1, 2, 3] nisu skup iz razloga što velike i srednje zagrade n prikazuju skup.
+
+Skupo se inače imenuju sa velikim štampanim slovima. Naprimjer, ime koje se obično bira za skup prirodnih brojeva je \textbf{N}.\\
+\begin{center}
+\textbf{\textsc{PRIRODNI BROJEVI}}\\
+N = \{1, 2, 3, 4, 5, ... \}
+\end{center}
+Tri tačke nakon 5, nazivaju se \textit{elipsa}, i označavaju da elementi skupa nastavljaju dalje na isti način. Ako se nakon elipse pojavi neki elemenat, znači da elementi idu na isti način sve do tog elementa uključujući i njega. Ovakva notacija prikazana je na primjeru ...
+
+Simbol \textbf{$\in$}, koji se čita, elemenat je, koristi se za označavanje članova u skupu. U primjeru 3, 6 je elemenat skupa A, pišemo $6\in A$. Također možemo napisati $6\in \{6, 7\}$. Isto tako $8\notin A$, što znači da 8 nije elemenat skupa A.
+
 
 \end{document}
