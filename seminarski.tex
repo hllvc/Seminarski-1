@@ -7,6 +7,11 @@
 
 \renewcommand{\contentsname}{Sadržaj}
 
+\theoremstyle{definition}
+\newtheorem{example}{Primjer}
+\newtheorem{solution}{Rješenje}
+\newtheorem*{solution*}{Rješenje}
+
 \pagestyle{fancy}
 \fancyhead[r]{\large{\thepage}}
 \fancyfoot{}
@@ -62,6 +67,12 @@ popis ili obrazac\\
 notacija skupa
 \end{center}
 Način označavanja skupa \textbf{opisom} prikazan je u primjeru 1.\\
+\begin{example}
+Jedan
+\end{example}
+\begin{solution*}
+Dva
+\end{solution*}
 
 Smještanje elemenata skupa unutar velikih zagrada "\{ \}", naziva se ruster forma. Zagrade su bitan dio notacije jer ona označavaju članove skupa.\\
 Naprimjer, \{1, 2, 3\} predstavlja notaciju za skup kojem pripadaju elemnti 1, 2 i 3, ali (1, 2, 3) i [1, 2, 3] nisu skup iz razloga što velike i srednje zagrade n prikazuju skup.
@@ -71,9 +82,11 @@ Skupo se inače imenuju sa velikim štampanim slovima. Naprimjer, ime koje se ob
 \textbf{\textsc{PRIRODNI BROJEVI}}\\
 N = \{1, 2, 3, 4, 5, ... \}
 \end{center}
-Tri tačke nakon 5, nazivaju se \textit{elipsa}, i označavaju da elementi skupa nastavljaju dalje na isti način. Ako se nakon elipse pojavi neki elemenat, znači da elementi idu na isti način sve do tog elementa uključujući i njega. Ovakva notacija prikazana je na primjeru ...
+Tri tačke nakon 5, nazivaju se \textit{elipsa}, i označavaju da elementi skupa nastavljaju dalje na isti način. Ako se nakon elipse pojavi neki elemenat, znači da elementi idu na isti način sve do tog elementa uključujući i njega. Ovakva notacija prikazana je na primjeru ...\\
+
 
 Simbol \textbf{$\in$}, koji se čita, elemenat je, koristi se za označavanje članova u skupu. U primjeru 3, 6 je elemenat skupa A, pišemo $6\in A$. Također možemo napisati $6\in \{6, 7\}$. Isto tako $8\notin A$, što znači da 8 nije elemenat skupa A.
 
+Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) može se koristiti da simbolizira skup. Navedena notacija skupa se često koristi u algebri. U nastavku primjer ilustrira njegov oblik.
 
 \end{document}
