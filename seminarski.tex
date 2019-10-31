@@ -1,16 +1,19 @@
 \documentclass[a4paper, 14pt]{article}
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[shortlabels]{enumitem}
 \usepackage{fancyhdr}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
+\usepackage{pstricks}
+
+\usepackage{tcolorbox}
+
 \renewcommand{\contentsname}{Sadržaj}
 
-\theoremstyle{definition}
-\newtheorem{example}{Primjer}
-\newtheorem{solution}{Rješenje}
-\newtheorem*{solution*}{Rješenje}
+\newcounter{exsolcounter}
+\newcommand{\exsol}[3]{\refstepcounter{exsolcounter} \par \textbf{PRIMJER \theexsolcounter} \textbf{\textit{#1}} \smallskip\par\noindent\hangindent=1cm\hangafter=0 #2\setlength{\leftskip}{0cm}\smallskip\par{\textbf{RJEŠENJE}\qquad #3}}
 
 \pagestyle{fancy}
 \fancyhead[r]{\large{\thepage}}
@@ -37,12 +40,22 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
 }
 \end{titlepage}
 
+\begin{tcolorbox}
 \tableofcontents
+\end{tcolorbox}
 \thispagestyle{empty}
 \newpage
 
+\begin{minipage}{0.35\textwidth}
+\begin{tcolorbox}
 \section{Skupovi}
+\end{tcolorbox}
+\end{minipage}
+\begin{minipage}{0.65\textwidth}
+\hfill
+\end{minipage}
 
+\bigskip\bigskip
 \begin{Large}
 Jedan od osnovnih ljudskih nagona jeste da sortira i klasificira stvari. Razmislite, naprimjer. Koliko različitih skupova ste vi član? Ako krenete sa nekim jednostavnim kategorijama, kao jeste li muško ili žensko, vaša starosna grupa, država u kojoj živite. Tada ćete možda razmišljati i o etničkoj pripadnosti vaše porodice, sociološko-ekonomskoj grupi, nacionalnosti. Ovo su samo neke od mnogobrojnih načina kako bi mogli opisati sebe drugim ljudima.
 
@@ -51,7 +64,9 @@ Kakva je korist od ovakve kategorizacije? Kao što ćete vidjeti u nastavku ovog
 Skupovi postavljaju temelje ostalim matematičkim oblastima, poput logike i apstraktne algebre. Ustvari, knjiga \textit{El\' ements de Math\' ematique}, napisana od strane grupe francuskog matematičara pod pseudonimom "Nicolas Bourbaki", kaže: "U današnjici je moguće, logički govoreći: "U današnjici je moguće, logički rečeno, "
 
 \vfill
-\noindent\fbox{\parbox{\textwidth}{Skupovi su osnovni alat za učenje pa čak i za malu djecu. Kao bebe, oni nauče razlikovati "mene" od "mama" i "tata". Kao mališani nauče razlikovati i kategorisati objekte kao članove skupa po veličini, boji, ili obliku. TV emisija "Ulice sezama" uči djecu da prave skupove kroz igru. "Jedna od tih stvari je različita od ostalih."}}
+\begin{tcolorbox}
+Skupovi su osnovni alat za učenje pa čak i za malu djecu. Kao bebe, oni nauče razlikovati "mene" od "mama" i "tata". Kao mališani nauče razlikovati i kategorisati objekte kao članove skupa po veličini, boji, ili obliku. TV emisija "Ulice sezama" uči djecu da prave skupove kroz igru. "Jedna od tih stvari je različita od ostalih."
+\end{tcolorbox}
 \end{Large}
 
 \newpage
@@ -66,27 +81,152 @@ opis\\
 popis ili obrazac\\
 notacija skupa
 \end{center}
-Način označavanja skupa \textbf{opisom} prikazan je u primjeru 1.\\
-\begin{example}
-Jedan
-\end{example}
-\begin{solution*}
-Dva
-\end{solution*}
+Način označavanja skupa \textbf{opisom} prikazan je u primjeru 1.
 
-Smještanje elemenata skupa unutar velikih zagrada "\{ \}", naziva se ruster forma. Zagrade su bitan dio notacije jer ona označavaju članove skupa.\\
-Naprimjer, \{1, 2, 3\} predstavlja notaciju za skup kojem pripadaju elemnti 1, 2 i 3, ali (1, 2, 3) i [1, 2, 3] nisu skup iz razloga što velike i srednje zagrade n prikazuju skup.
+\exsol{Opis skupova}{Napisati opis skupa koji sadrži elemente ponedjeljak, utorak, srijeda, četvrtak, petak, subota, nedjelja.}{Naziv skupa je "Dani u sedmici"}
+\begin{tcolorbox}[title=\large PRIMJER \hfill\small\textbf{"Opis skupova}"]
+Napisati opis skupa koji sadrži elemente ponedjeljak, utorak, srijeda, četvrtak, petak, subota, nedjelja.
+
+\begin{tcolorbox}[title=RJEŠENJE]
+\begin{center}
+Naziv skupa je "Dani u sedmici"
+\end{center}
+\end{tcolorbox}
+\end{tcolorbox}
+
+Smještanje elemenata skupa unutar velikih zagrada "$\{ \}$", naziva se ruster forma. Zagrade su bitan dio notacije jer ona označavaju članove skupa.\\
+Naprimjer, $\{1, 2, 3\}$ predstavlja notaciju za skup kojem pripadaju elemnti 1, 2 i 3, ali $(1, 2, 3)$ i $[1, 2, 3]$ nisu skup iz razloga što velike i srednje zagrade n prikazuju skup.
 
 Skupo se inače imenuju sa velikim štampanim slovima. Naprimjer, ime koje se obično bira za skup prirodnih brojeva je \textbf{N}.\\
+\begin{tcolorbox}
 \begin{center}
 \textbf{\textsc{PRIRODNI BROJEVI}}\\
-N = \{1, 2, 3, 4, 5, ... \}
+$N = \{1, 2, 3, 4, 5, ... \}$
 \end{center}
-Tri tačke nakon 5, nazivaju se \textit{elipsa}, i označavaju da elementi skupa nastavljaju dalje na isti način. Ako se nakon elipse pojavi neki elemenat, znači da elementi idu na isti način sve do tog elementa uključujući i njega. Ovakva notacija prikazana je na primjeru ...\\
+\end{tcolorbox}
+Tri tačke nakon 5, nazivaju se \textit{elipsa}, i označavaju da elementi skupa nastavljaju dalje na isti način. Ako se nakon elipse pojavi neki elemenat, znači da elementi idu na isti način sve do tog elementa uključujući i njega. Ovakva notacija prikazana je na primjeru 2b.
 
+\begin{tcolorbox}
+\exsol{Skup u formi popisa}{Predstaviti sljedeće u formi popisa.\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item Skup $A$ je skup prirodnih brojeva manjih od 4.
+\item Skup $B$ je skup prirodnih brojeva manjih ili jednako 70.
+\item Skup $P$ je skup planeta sunčevog sistema.
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item Prirodni brojevi manji od 4 su 1, 2 i 3. Prema tome, skup $A$ u formi popisa je $A=\{1,2,3\}$
+\item $B=\{1, 2, 3, 4, ... , 70\}$. Broj 70 nakon 3 tačke znači da se brojevi nastavljaju na isti način sve do 70.
+\item $P=\{$Merkur, Venera, Zemlja, Mars, Jupiter, Saturn, Uran, Neptun, Pluton$\}$.
+\end{enumerate}}
+\end{tcolorbox}
+\exsol{Riječ "uključujući"}{Sljedeće napiši u formi popisa.
+\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item Skup prirodnih brojeva između 5 i 8.
+\item Skup prirodnih brojeva između 5 i 8, uključujući.
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item $A=\{6, 7\}$.
+\item $B=\{5, 6, 7, 8\}$. Primjetite da riječ \textit{uključujuči} pokazuje na to da su i brojevi između 5 i 8 unutar skupa.
+\end{enumerate}}
 
 Simbol \textbf{$\in$}, koji se čita, elemenat je, koristi se za označavanje članova u skupu. U primjeru 3, 6 je elemenat skupa A, pišemo $6\in A$. Također možemo napisati $6\in \{6, 7\}$. Isto tako $8\notin A$, što znači da 8 nije elemenat skupa A.
 
-Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) može se koristiti da simbolizira skup. Navedena notacija skupa se često koristi u algebri. U nastavku primjer ilustrira njegov oblik.
+Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) može se koristiti da simbolizira skup. Navedena notacija skupa se često koristi u algebri. U nastavku primjer ilustrira njegov oblik.\\
+
+\begin{pspicture}(0,0)(11,2.5)
+%\psgrid(0,0)(11,2.5)
+\rput(1,2){$D$}
+\rput(2,1.967){$\textbf{=}$}
+\rput(3,2){$\{$}
+\rput(5,2){$\textbf{x}$}
+\rput(7,2){$\textbf{|}$}
+\rput(10,2){Uslov(i) $\}$}
+\rput(1,1.5){$\uparrow$}
+\rput(2,1.5){$\uparrow$}
+\rput(3,1.5){$\uparrow$}
+\rput(5,1.5){$\uparrow$}
+\rput(7,1.5){$\uparrow$}
+\rput(10,1.5){$\uparrow$}
+
+\rput(1,0.7){Skup $D$}
+\rput(2,0.7){je}
+\rput(3,0.7){skup}
+\rput(5,0.7){svih}
+\rput(5,0.4){elemenata}
+\rput(5,0.1){$x$}
+\rput(7,0.7){takvih}
+\rput(7,0.4){da}
+\rput(10,0.7){$x$ zadovoljava uslove}
+\rput(10,0.4){da bi bio dio skupa}
+\end{pspicture}
+\medskip
+
+Uzmimo u obzir $E=\{x|x\in N$ i $x\>10\}$. Izraz se čita kao "Skup $E$ je skup svih elemenata x takvih da je x veće od 10." Uslovi koje $x$ mora ispuniti da bi bio elemenat skupa je $x\in N$, što znači da $x$ mora biti prirodan broj, i $x\> 10$, što znači da $x$ mora biti veće od 10. Brojevi koji ispunjavaju oba uvjeta su elementi skupa prirodnih brojeva većih od 10. Skup u formi popisa izgleda ovako
+$$E=\{11, 12, 13, 14, ...\ \}$$
+
+\exsol{Korištenje notacije za kreiranje skupova}{\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item Napisati skup $B=\{1, 2, 3, 4, 5\}$ u obliku notacije za kreiranje skupa
+\item Napiši, riječima, kako bi pročitao notaciju za kreiranje skupa $B$
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item Prema tome da se skup $B$ sastoji od prirodnih brojeva manjih od 6, pišemo $$B=\{x|x\in N\text { i } x< 6\}$$ Još jedan prihvatljiv odgovor je $B=\{x|x\in N$ i $x\leqslant 5\}$.
+\item Skup $B$ je skup svih elemenata $x$ takvih da je $x$ prirodan broj i da je manji od 6.
+\end{enumerate}}
+\exsol{Forma popisa u notaciji građenja skupova}{
+\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item Napisati skup $S = \{$Maine, Maryland, Massachusetts, Michigen, Minnesota, Mississippi, Missouri, Montana$\}$ u notaciji građenja skupova.
+\item Napisati riječima kako bi pročitao/la skup $S$ u notaciji iz a).
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\item $S=\{x|x$ je država u SAD-u čije ime počinje sa M$\}$.
+\item Skup $S$ je skup svih elemenata x takvih da je x država SAD-a čije ime počinje sa slovom M.
+\end{enumerate}}
+\exsol{Notacija građenja skupova u formi popisa}{Napisati $A=\{x|x\in N$ i $2\leqslant x<8\}$ u formi popisa.}{$A=\{2, 3, 4, 5, 6, 7\}$}
+
+Za skup se kaže da je \textbf{konačan}, ako ne sadrži elemente ili broj elemenata u skupu je prirodan broj. Skup $B=\{2, 4, 6, 8, 10\}$ je konačan skup zato što je broj elemenata skupa 5, a 5 je prirodan broj. Skup koji nije konačan naziva se \textbf{beskonačan} skup. Skup brojivih brojeva je jedan primjer beskonačnog skupa. O beskonačnim skupovima govorit ćemo u Poglavlju ...
+\newpage
+
+Još jedan bitan koncept jeste jednakost skupova.\smallskip
+\begin{tcolorbox}
+Skup $A$ \textbf{jendak} je skupu $B$, simbolično napisano $A=B$, ako i samo ako skup $A$ sadrži tačno iste elemente kao skup $B$.
+\end{tcolorbox}\smallskip
+\noindent Naprimjer, ako skup $A=\{1, 2, 3\}$ i skup $B=\{3, 1, 2\}$, onda $A=B$ zato što oba sadrže tačno iste elemente. Radoslijed elemenata u skupu nije bitan. Ako su dva skupa jednaka onda moraju oba biti sačinjnena od istog broja elemenata. Broj elemenata skupa naziva se \textit{osnovnu/kardinalni broj}.\smallskip
+\begin{tcolorbox}
+\textbf{Osnovni/Kardinanli broj} skupa $A$, simbolično napisanon$n(A)$, je broj elemenata skupa $A$.
+\end{tcolorbox}\smallskip
+Oba skupa $A=\{1, 2, 3\}$ i $B=\{$Engleska, Francuska, Japan$\}$ imaju osnovni/kardinalni broj 3; to jest, $n(A)=3$, i $n(B)=3$. Kažemo da skup $A$ i skup $B$ oba imaju kardinalnost 3.\par
+Za dva skupa se kaže da su \textbf{ekvivalentna} ako oba posjeduju isti broj elemenata.\smallskip
+\begin{tcolorbox}
+Skup $A$ je \textbf{ekvivalentan} skupu $B$ ako i samo ako $n(A)=n(B)$.
+\end{tcolorbox}\smallskip
+\noindent Bilo koji skupovi koju su jednaki moraju biti i ekvivalenti. Međutim, nisu svi ekvivalentni skupovi jednaki. Skupovi $D=\{a, b, c\}$ i $E=\{$apple, orange, pear$\}$ su ekvivalenti, stoga što oba imaju isti osnovni/kardinalni broj, 3. Zbog toga što se elementi ralikuju, međutim, skupovi nisu jednaki.\par
+Dva skupa koja su ekvivalentna i  imaju istu kardinalnost mogu se dopisati 1-1. Skup $A$ i skup $B$ mogu se dopisati 1-1 ako svaki elemenat skupa $A$ može biti povezan sa tačno jednim elementom skupa $B$ i svaki elemenat skupa $B$ može biti povezan sa tačno jednim elementom skupa $A$. Naprimjer, dopis 1-1 postoji između imena studenata sa liste razreda i sa njihovim identifikacionim brojevima zato što povezati njihova imena sa njihovim brojevima.\smallskip
+\begin{tcolorbox}
+Uzmimo u obzir skup $B$, ime brenda produkta, i skup $D$, pića.
+\begin{center}
+$B=\{$Meggle, Biljana, Oaza, Zlatna džezva$\}$\\
+$D=\{$čaj, mlijeko, kafa, voda$\}$
+\end{center}
+Dva zarličita dopisa 1-1 za skupove $B$ i $D$ slijede.\medskip
+\begin{tcolorbox}[colback=white]
+\smallskip
+\begin{center}
+\begin{pspicture}(0,0)(7,3)
+%\psgrid(0,0)(7,3)
+\rput(3.5,0){$D=\{$čaj, mlijeko, kafa, voda$\}$}
+\rput(3.5,1){$B=\{$Meggle, Biljana, Oaza, Zlatna džezva$\}$}
+\rput(3.5,2){$D=\{$čaj, mlijeko, kafa, voda$\}$}
+\rput(3.5,3){$B=\{$Meggle, Biljana, Oaza, Zlatna džezva$\}$}
+
+\psline[arrows=->](1.6,2.8)(2.25,2.2)%megle,čaj
+\psline[arrows=->](2.85,2.8)(3.25,2.2)%biljana,mlijeko
+\psline[arrows=->](4.05,2.8)(4.35,2.2)%oaza, kafa
+\psline[arrows=->](5.7,2.8)(5.3,2.2)%z.dž, voda
+
+\psline[arrows=->](1.6,0.8)(3.25,0.2)%done
+\psline[arrows=->](2.85,0.8)(2.25,0.2)%done
+\psline[arrows=->](4.05,0.8)(5.3,0.2)
+\psline[arrows=->](5.7,0.8)(4.35,0.2)
+\end{pspicture}
+\smallskip
+\end{center}
+\end{tcolorbox}
+\end{tcolorbox}2.25,2.2
+Drugi dopisi 1-1 su mogući između skupova $B$ i $D$. Da li znate koje piće ide sa kojim imenom brenda produkta?
 
 \end{document}
