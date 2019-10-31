@@ -12,11 +12,15 @@
 
 \renewcommand{\contentsname}{Sadržaj}
 
+\newcounter{counter}
+\newcommand{\examplecounter}{\textbf{\refstepcounter{counter}PRIMJER \thecounter}}
+
 \pagestyle{fancy}
 \fancyhead[r]{\large{\thepage}}
 \fancyfoot{}
 
 \begin{document}
+
 \begin{titlepage}
 \raggedright
 \rule{1pt}{\textheight}
@@ -79,10 +83,9 @@ popis ili obrazac\\
 notacija skupa
 \end{center}
 Način označavanja skupa \textbf{opisom} prikazan je u primjeru 1.
-
-\begin{tcolorbox}[title=\large PRIMJER \hfill\small\textbf{"Opis skupova"}]
+\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Opis skupova"}]
 Napisati opis skupa koji sadrži elemente ponedjeljak, utorak, srijeda, četvrtak, petak, subota, nedjelja.
-\begin{tcolorbox}
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
 \begin{center}
 Naziv skupa je "Dani u sedmici"
 \end{center}
@@ -101,15 +104,15 @@ $N = \{1, 2, 3, 4, 5, ... \}$
 \end{tcolorbox}
 Tri tačke nakon 5, nazivaju se \textit{elipsa}, i označavaju da elementi skupa nastavljaju dalje na isti način. Ako se nakon elipse pojavi neki elemenat, znači da elementi idu na isti način sve do tog elementa uključujući i njega. Ovakva notacija prikazana je na primjeru 2b.
 
-\begin{tcolorbox}[title=\large PRIMJER \hfill\small\textbf{"Skup u formi popisa"}]
-Predstaviti sljedeće u formi popisa.\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\begin{tcolorbox}[title=\large \examplecounter\hfill\small\textbf{"Skup u formi popisa"}]
+Predstaviti sljedeće u formi popisa.\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Skup $A$ je skup prirodnih brojeva manjih od 4.
 \item Skup $B$ je skup prirodnih brojeva manjih ili jednako 70.
 \item Skup $P$ je skup planeta sunčevog sistema.
 \end{enumerate}
-\begin{tcolorbox}
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
 \begin{center}
-\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Prirodni brojevi manji od 4 su 1, 2 i 3. Prema tome, skup $A$ u formi popisa je $A=\{1,2,3\}$
 \item $B=\{1, 2, 3, 4, ... , 70\}$. Broj 70 nakon 3 tačke znači da se brojevi nastavljaju na isti način sve do 70.
 \item $P=\{$Merkur, Venera, Zemlja, Mars, Jupiter, Saturn, Uran, Neptun, Pluton$\}$.
@@ -118,15 +121,15 @@ Predstaviti sljedeće u formi popisa.\begin{enumerate}[label=\alph*),leftmargin=
 \end{tcolorbox}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=\large PRIMJER \hfill\small\textbf{"Riječ \textit{uključujući}"}]
+\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Riječ \textit{uključujući}"}]
 Sljedeće napiši u formi popisa.
-\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Skup prirodnih brojeva između 5 i 8.
 \item Skup prirodnih brojeva između 5 i 8, uključujući.
 \end{enumerate}
-\begin{tcolorbox}
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
 \begin{center}
-\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item $A=\{6, 7\}$.
 \item $B=\{5, 6, 7, 8\}$. Primjetite da riječ \textit{uključujuči} pokazuje na to da su i brojevi između 5 i 8 unutar skupa.
 \end{enumerate}
@@ -137,7 +140,7 @@ Sljedeće napiši u formi popisa.
 Simbol \textbf{$\in$}, koji se čita, elemenat je, koristi se za označavanje članova u skupu. U primjeru 3, 6 je elemenat skupa A, pišemo $6\in A$. Također možemo napisati $6\in \{6, 7\}$. Isto tako $8\notin A$, što znači da 8 nije elemenat skupa A.
 
 Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) može se koristiti da simbolizira skup. Navedena notacija skupa se često koristi u algebri. U nastavku primjer ilustrira njegov oblik.\\
-
+\vfill
 \begin{pspicture}(0,0)(11,2.5)
 %\psgrid(0,0)(11,2.5)
 \rput(1,2){$D$}
@@ -169,14 +172,14 @@ Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) 
 Uzmimo u obzir $E=\{x|x\in N$ i $x\>10\}$. Izraz se čita kao "Skup $E$ je skup svih elemenata x takvih da je x veće od 10." Uslovi koje $x$ mora ispuniti da bi bio elemenat skupa je $x\in N$, što znači da $x$ mora biti prirodan broj, i $x\> 10$, što znači da $x$ mora biti veće od 10. Brojevi koji ispunjavaju oba uvjeta su elementi skupa prirodnih brojeva većih od 10. Skup u formi popisa izgleda ovako
 $$E=\{11, 12, 13, 14, ...\ \}$$
 
-\begin{tcolorbox}[title=\large PRIMJER \hfill\small\textbf{"Korištenje notacije za kreiranje skupova"}]
-\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Korištenje notacije za kreiranje skupova"}]
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Napisati skup $B=\{1, 2, 3, 4, 5\}$ u obliku notacije za kreiranje skupa
 \item Napiši, riječima, kako bi pročitao notaciju za kreiranje skupa $B$
 \end{enumerate}
-\begin{tcolorbox}
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
 \begin{center}
-\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Prema tome da se skup $B$ sastoji od prirodnih brojeva manjih od 6, pišemo $$B=\{x|x\in N\text { i } x< 6\}$$ Još jedan prihvatljiv odgovor je $B=\{x|x\in N$ i $x\leqslant 5\}$.
 \item Skup $B$ je skup svih elemenata $x$ takvih da je $x$ prirodan broj i da je manji od 6.
 \end{enumerate}
@@ -184,19 +187,31 @@ $$E=\{11, 12, 13, 14, ...\ \}$$
 \end{tcolorbox}
 \end{tcolorbox}
 
-%\exsol{Forma popisa u notaciji građenja skupova}{
-%\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
-%\item Napisati skup $S = \{$Maine, Maryland, Massachusetts, Michigen, Minnesota, Mississippi, Missouri, Montana$\}$ u notaciji građenja skupova.
-%\item Napisati riječima kako bi pročitao/la skup $S$ u notaciji iz a).
-%\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=4\parindent]
-%\item $S=\{x|x$ je država u SAD-u čije ime počinje sa M$\}$.
-%\item Skup $S$ je skup svih elemenata x takvih da je x država SAD-a čije ime počinje sa slovom M.
-%\end{enumerate}}
-%\exsol{Notacija građenja skupova u formi popisa}{Napisati $A=\{x|x\in N$ i $2\leqslant x<8\}$ u formi popisa.}{$A=\{2, 3, 4, 5, 6, 7\}$}
+\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Forma popisa u notaciji građenja skupova"}]
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item Napisati skup $S = \{$Maine, Maryland, Massachusetts, Michigen, Minnesota, Mississippi, Missouri, Montana$\}$ u notaciji građenja skupova.
+\item Napisati riječima kako bi pročitao/la skup $S$ u notaciji iz a).
+\end{enumerate}
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
+\begin{center}
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item $S=\{x|x$ je država u SAD-u čije ime počinje sa M$\}$.
+\item Skup $S$ je skup svih elemenata x takvih da je x država SAD-a čije ime počinje sa slovom M.
+\end{enumerate}
+\end{center}
+\end{tcolorbox}
+\end{tcolorbox}
 
-Za skup se kaže da je \textbf{konačan}, ako ne sadrži elemente ili broj elemenata u skupu je prirodan broj. Skup $B=\{2, 4, 6, 8, 10\}$ je konačan skup zato što je broj elemenata skupa 5, a 5 je prirodan broj. Skup koji nije konačan naziva se \textbf{beskonačan} skup. Skup brojivih brojeva je jedan primjer beskonačnog skupa. O beskonačnim skupovima govorit ćemo u Poglavlju ...
-\newpage
+\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Notacija građenja skupova u formi popisa"}]
+Napisati $A=\{x|x\in N$ i $2\leqslant x<8\}$ u formi popisa.
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
+\begin{center}
+$A=\{2, 3, 4, 5, 6, 7\}$
+\end{center}
+\end{tcolorbox}
+\end{tcolorbox}
 
+Za skup se kaže da je \textbf{konačan}, ako ne sadrži elemente ili broj elemenata u skupu je prirodan broj. Skup $B=\{2, 4, 6, 8, 10\}$ je konačan skup zato što je broj elemenata skupa 5, a 5 je prirodan broj. Skup koji nije konačan naziva se \textbf{beskonačan} skup. Skup brojivih brojeva je jedan primjer beskonačnog skupa. O beskonačnim skupovima govorit ćemo u Poglavlju ...\par\smallskip
 Još jedan bitan koncept jeste jednakost skupova.\smallskip
 \begin{tcolorbox}
 Skup $A$ \textbf{jendak} je skupu $B$, simbolično napisano $A=B$, ako i samo ako skup $A$ sadrži tačno iste elemente kao skup $B$.
@@ -242,7 +257,7 @@ Dva zarličita dopisa 1-1 za skupove $B$ i $D$ slijede.\medskip
 \smallskip
 \end{center}
 \end{tcolorbox}
-\end{tcolorbox}2.25,2.2
+\end{tcolorbox}
 Drugi dopisi 1-1 su mogući između skupova $B$ i $D$. Da li znate koje piće ide sa kojim imenom brenda produkta?
 
 \end{document}
