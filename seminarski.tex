@@ -1,4 +1,5 @@
-\documentclass[a4paper, 14pt]{article}
+\PassOptionsToPackage{table,xcdraw}{xcolor}
+\documentclass[a4paper, 14pt, svgnames]{article}
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[shortlabels]{enumitem}
@@ -15,9 +16,79 @@
 \newcounter{counter}
 \newcommand{\examplecounter}{\textbf{\refstepcounter{counter}PRIMJER \thecounter}}
 
+\usepackage{fourier-orns} 
 \pagestyle{fancy}
 \fancyhead[r]{\large{\thepage}}
-\fancyfoot{}
+\renewcommand\footrule{%
+\hrulefill \raisebox{-2.1pt} {\quad\decofourleft\decotwo\decofourright\quad}%
+\hrulefill}
+
+\usepackage{titlesec,letltxmacro}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc}
+
+\newcommand\titlebar{%
+    \tikz[baseline,trim left=3em,trim right=3cm] {
+        \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+2.1cm,2.5ex);
+        \node [
+        fill=gray,
+        anchor= base east,
+        rounded rectangle,
+        minimum height=3.5ex] at (3cm,0) {
+            \textbf{\thesection}
+        };
+    }%
+}
+\titleformat{\section}{\huge}{\titlebar}{0.1cm}{}
+
+%\newcommand\titlebarsss{%
+%    \tikz[baseline,trim right=3cm] {
+%        \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+2.6cm,2.5ex);
+%        {
+%            \textbf{\thesubsection}
+%        };
+%    }%
+%}
+%\titleformat{name=\subsection,numberless}{\large}{\titlebarsss}{0.1cm}{}
+
+\makeatletter
+\newcommand\titlebar@@{%
+\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
+}}
+\newcommand\titlebar@{%
+\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
+    \node [
+        fill=gray,
+        anchor= base east,
+        rounded rectangle,
+        minimum height=3.5ex] at (3cm,0) {
+        \textbf{\thesubsection}
+    };
+}}
+\newcommand\titlebars{\@ifstar\titlebar@@\titlebar@}
+\titleformat{\subsection}{\large}{\titlebars}{0.1cm}{}
+
+\makeatletter
+\newcommand\titlebars@@{%
+\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
+}}
+\newcommand\titlebars@{%
+\tikz[baseline,trim left=3.1cm,trim right=3cm] {
+    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
+    \node [
+        fill=gray,
+        anchor= base east,
+        rounded rectangle,
+        minimum height=3.5ex] at (3cm,0) {
+        \textbf{\thesubsubsection}
+    };
+}}
+\newcommand\titlebarss{\@ifstar\titlebars@@\titlebars@}
+\titleformat{\subsubsection}{\large}{\titlebarss}{0.1cm}{}
 
 \begin{document}
 
@@ -47,14 +118,7 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
 \thispagestyle{empty}
 \newpage
 
-\begin{minipage}{0.35\textwidth}
-\begin{tcolorbox}
 \section{Skupovi}
-\end{tcolorbox}
-\end{minipage}
-\begin{minipage}{0.65\textwidth}
-\hfill
-\end{minipage}
 
 \bigskip\bigskip
 \begin{Large}
@@ -259,5 +323,65 @@ Dva zarličita dopisa 1-1 za skupove $B$ i $D$ slijede.\medskip
 \end{tcolorbox}
 \end{tcolorbox}
 Drugi dopisi 1-1 su mogući između skupova $B$ i $D$. Da li znate koje piće ide sa kojim imenom brenda produkta?
+
+\subsubsection{\textsc{nula ili prazan skup}}
+Neki skupovi ne sadrže ni jedan elemenat, kao naprimjer skup zebri koje su u ovoj sobi.
+\begin{tcolorbox}
+Skup koji ne sadrži elemente naziva se \textbf{prazan skup} ili \textbf{nula skup} i simbolično se označava sa $\{\ \}$ ili $\varnothing$.
+\end{tcolorbox}
+Imajte na umu da ${\varnothing}$ nije prazan skup. Ovaj skup sadrži elemenat $\varnothing$ i ima kardinalnost 1. Skup $\{0\}$ također nije prazan skup zato što sadrži elemenat $0$. I on ima kardinalnost 1.
+\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Rješenja prirodnih brojeva"}]
+Naznalite skup prirodnih brojeva koji zadovoljavaju jednačinu $x+2=0$.
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
+\begin{center}
+Vrijednosti koje zadovoljavaju jednačinu moraju biti takve da jednačina bude tačna. Samo broj $-2$ zadovoljava ovu jednačinu. Zbog toga što $-2$ nije prirodan bro, rješenje iove jednačine je $\{\ \}$ ili $\varnothing$.
+\end{center}
+\end{tcolorbox}
+\end{tcolorbox}
+
+\subsubsection{\textsc{univerzalni skup}}
+Još jedan bitan skup jeste \textbf{univerzalni skup}.
+\begin{tcolorbox}
+\textbf{univerzalni skup}, simbolično napisan sa $U$, je skup koji sadrži sve elemente za bilo koju diskusiju.
+\end{tcolorbox}
+Kada je dat univerzalni skup, samo elementi univerzalnog skupa mogu se razmatrati prilikom rješavanja problema. Ako je, naprimjer, univerzalni skup za određeni problem definisan kao $U=\{1, 2, 3, 4, .., 10\}$, onda samo prirodni brojevi od 1 do 10 mogu biti korišteni tokom problema.
+
+\begin{tcolorbox}[title=\textbf{ZADACI ZA VJEŽBU}]
+\addcontentsline{toc}{subsection}{\protect\numberline{}\textsc{zadaci za vježbu}}
+\begin{minipage}{0.5\textwidth}
+\textbf{KONCEPT/VJEŽBE PISANJA}\\
+\textit{U zadacima od 1 do 8, odgovoriti na pitanja punom rečenicom.}
+\begin{enumerate}
+\item Šta je skup?
+\item Koje su tri varijante kojima skup može biti zapisan? navedite primjer za svaku od njih.
+\item Šta je beskonačan skup?
+\item Šta je konačan skup?
+\item Šta su jednaki skupovi?
+\item Šta su ekvivalenti skupovi?
+\item Šta je kardinalni broj skupa?
+\item Šta je univerzalni skup?
+\item Šta je prazan skup?
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\textbf{ZADACI ZA VJEŽBU VJEŠTINE}\\
+\textit{U zadacima od 10 do 12, odredite da li su skupovi dobro definisani.}
+\begin{enumerate}
+\setcounter{enumi}{9}
+\item Skup najboljih internet sajtova
+\item Skup ljudi koji posjeduju velike pse
+\item Skup učenika razreda koji su rođeni u Bosni i Hercegovini
+\end{enumerate}
+\textit{U zadacima od 13 do 24, odredite da li je skup konačan ili beskonačan}.
+\begin{enumerate}
+\setcounter{enumi}{12}
+\item $\{1, 3, 5, 7, ...\}$
+\item Skup parnih brojeva većih od 15
+\item Skup neparnih brojeva većih od 15
+\item Skup vrabaca koji cvrkuću u parku 4. jula u 10 sati.
+\end{enumerate}
+\end{minipage}
+\end{tcolorbox}
+
 
 \end{document}
