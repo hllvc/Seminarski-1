@@ -1,5 +1,5 @@
-\PassOptionsToPackage{table,xcdraw}{xcolor}
-\documentclass[a4paper, 14pt, svgnames]{article}
+\PassOptionsToPackage{table,xcdraw,dvipsname}{xcolor}
+\documentclass[a4paper,14pt,svgnames]{article}
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[shortlabels]{enumitem}
@@ -11,6 +11,12 @@
 
 \usepackage{tcolorbox}
 
+\usepackage{titlesec,letltxmacro}
+\usepackage[table,xcdraw,dvipsname]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.misc}
+
 \renewcommand{\contentsname}{Sadržaj}
 
 \newcounter{counter}
@@ -18,15 +24,33 @@
 
 \usepackage{fourier-orns} 
 \pagestyle{fancy}
-\fancyhead[r]{\large{\thepage}}
+
+\definecolor{mycol}{RGB}{63, 138, 135}
+\fancyhf{}
+\hoffset 2.2cm
+\voffset -1cm
+\fancyhead[L]{%
+  \begin{tikzpicture}[overlay,remember picture]
+      \fill [color=mycol]
+        (current page.north west)
+        rectangle
+        ($ (current page.south west) + (5cm,0cm) $);
+  \end{tikzpicture}
+\begin{tikzpicture}[overlay,remember picture]
+      \fill [color=white]
+        (current page.north west)
+        rectangle
+        ($ (current page.south west) + (0.3cm,0cm) $);
+  \end{tikzpicture}
+}
+\renewcommand{\headrulewidth}{0pt}
+%\fancyhead[C]{\textsc{Skupovi} --- \textsc{Adis Halilović}}
+
+\fancyfoot[C]{-~\thepage~-}
 \renewcommand\footrule{%
 \hrulefill \raisebox{-2.1pt} {\quad\decofourleft\decotwo\decofourright\quad}%
 \hrulefill}
-
-\usepackage{titlesec,letltxmacro}
-\usepackage[table,xcdraw]{xcolor}
-\usepackage{tikz}
-\usetikzlibrary{shapes.misc}
+\fancyfootoffset[R,L]{-0.5\textwidth}
 
 \newcommand\titlebar{%
     \tikz[baseline,trim left=3em,trim right=3cm] {
@@ -58,8 +82,8 @@
     \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
 }}
 \newcommand\titlebar@{%
-\tikz[baseline,trim left=3.1cm,trim right=3cm] {
-    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
+\tikz[baseline,trim left=2.1cm,trim right=3cm] {
+    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+2.3cm,2.5ex);
     \node [
         fill=gray,
         anchor= base east,
@@ -74,11 +98,11 @@
 \makeatletter
 \newcommand\titlebars@@{%
 \tikz[baseline,trim left=3.1cm,trim right=3cm] {
-    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
+    \fill [white!80!black] 2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
 }}
 \newcommand\titlebars@{%
-\tikz[baseline,trim left=3.1cm,trim right=3cm] {
-    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+3.1cm,2.5ex);
+\tikz[baseline,trim left=1.6cm,trim right=3cm] {
+    \fill [white!80!black] (2.5cm,-1ex) rectangle (\textwidth+1.8cm,2.5ex);
     \node [
         fill=gray,
         anchor= base east,
@@ -89,6 +113,47 @@
 }}
 \newcommand\titlebarss{\@ifstar\titlebars@@\titlebars@}
 \titleformat{\subsubsection}{\large}{\titlebarss}{0.1cm}{}
+
+\usepackage{geometry}
+
+\usepackage{titletoc}
+
+\titlecontents{section}[2.3em]
+  {}
+  {\bfseries\contentslabel[\thecontentslabel.0]{2em}\MakeUppercase}
+  {\hspace*{-2.3em}\bfseries\MakeUppercase}
+  {\titlerule*[1pc]{.}\contentspage}
+\titlecontents{subsection}[4.6em]
+  {}
+  {\bfseries\contentslabel{2em}}
+  {\hspace*{-2.3em}\bfseries}
+  {\titlerule*[1pc]{.}\contentspage}
+\titlecontents{subsubsection}[6.9em]
+  {}
+  {\bfseries\contentslabel{2em}\itshape\space}
+  {\hspace*{-2.3em}\bfseries}
+  {\titlerule*[1pc]{.}\contentspage}
+
+\makeatletter
+\renewcommand\tableofcontents{%
+  \section*{\centerline{\MakeUppercase{\contentsname}}
+    \@mkboth
+      {\MakeUppercase\contentsname}
+      {\MakeUppercase\contentsname}
+  }%
+  \@starttoc{toc}%
+}
+\makeatother
+
+\newcommand{\example}[3]{\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"#1"}]
+#2
+\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
+\begin{center}
+#3
+\hfill $\vartriangle$
+\end{center}
+\end{tcolorbox}
+\end{tcolorbox}}
 
 \begin{document}
 
@@ -112,12 +177,28 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
 }
 \end{titlepage}
 
-\begin{tcolorbox}
-\tableofcontents
-\end{tcolorbox}
+\newgeometry{right=2cm,top=5cm}
+\hoffset -0.5cm
 \thispagestyle{empty}
+\tableofcontents
+\clearpage
+
+\addcontentsline{toc}{section}{sadržaj}
+\clearpage
+
+\addtocontents{toc}{\vspace{1em}}
+\clearpage
+
+\addcontentsline{toc}{section}{Tables}
+\addtocontents{toc}{\vspace{1em}}
+\clearpage
+
+\pagenumbering{arabic}
+\restoregeometry
+
 \newpage
 
+\newgeometry{bottom=1in, top=1in}
 \section{Skupovi}
 
 \bigskip\bigskip
@@ -127,14 +208,13 @@ Jedan od osnovnih ljudskih nagona jeste da sortira i klasificira stvari. Razmisl
 Kakva je korist od ovakve kategorizacije? Kao što ćete vidjeti u nastavku ovog poglavlja, sortirajući stvari po skupovima pomaže vam organizirati i urediti vaš svijet. U mogućnosti ste da vladate velikim količinama informacija. Skupovi su učevni alat koji pomaže da se odgovori na pitanje: "Koje su karakteristike grupe?"
 
 Skupovi postavljaju temelje ostalim matematičkim oblastima, poput logike i apstraktne algebre. Ustvari, knjiga \textit{El\' ements de Math\' ematique}, napisana od strane grupe francuskog matematičara pod pseudonimom "Nicolas Bourbaki", kaže: "U današnjici je moguće, logički govoreći: "U današnjici je moguće, logički rečeno, "
-
-\vfill
+\bigskip
 \begin{tcolorbox}
 Skupovi su osnovni alat za učenje pa čak i za malu djecu. Kao bebe, oni nauče razlikovati "mene" od "mama" i "tata". Kao mališani nauče razlikovati i kategorisati objekte kao članove skupa po veličini, boji, ili obliku. TV emisija "Ulice sezama" uči djecu da prave skupove kroz igru. "Jedna od tih stvari je različita od ostalih."
 \end{tcolorbox}
 \end{Large}
-
 \newpage
+
 \subsection{Koncepti skupa}
 
 Svakodnevno srešemo skupove u našim životima u raznim situacijama. Skup je kolekcija objekata, koji se nazivaju \textbf{elementi} ili \textbf{članovi} skupa. Naprimjer, Sjedinjena Američka država je kolekcija ili skup 50 manjih država. 50 pojedinih država su članovi ili elementi jednog skupa koji se naziva Sjedinjene Američke države.
@@ -147,14 +227,7 @@ popis ili obrazac\\
 notacija skupa
 \end{center}
 Način označavanja skupa \textbf{opisom} prikazan je u primjeru 1.
-\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Opis skupova"}]
-Napisati opis skupa koji sadrži elemente ponedjeljak, utorak, srijeda, četvrtak, petak, subota, nedjelja.
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
-\begin{center}
-Naziv skupa je "Dani u sedmici"
-\end{center}
-\end{tcolorbox}
-\end{tcolorbox}
+\example{Opis skupova}{Napisati opis skupa koji sadrži elemente ponedjeljak, utorak, srijeda, četvrtak, petak, subota, nedjelja.}{Naziv skupa je "Dani u sedmici"}
 
 Smještanje elemenata skupa unutar velikih zagrada "$\{ \}$", naziva se ruster forma. Zagrade su bitan dio notacije jer ona označavaju članove skupa.\\
 Naprimjer, $\{1, 2, 3\}$ predstavlja notaciju za skup kojem pripadaju elemnti 1, 2 i 3, ali $(1, 2, 3)$ i $[1, 2, 3]$ nisu skup iz razloga što velike i srednje zagrade n prikazuju skup.
