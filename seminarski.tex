@@ -184,10 +184,10 @@
 \newgeometry{bottom=1in,right=1in,left=1in}
 \begin{titlepage}
 \begin{tikzpicture}[remember picture,overlay]
-\draw [ultra thick, draw=white, fill=mycol, fill opacity=0.2] ($(current page.north west)+(1.5cm,-1cm)$) rectangle  ($(current page.south east)+(0cm,1.5cm)$) ;
+\draw [ultra thick, draw=black, fill=mycol, fill opacity=0.2] ($(current page.north west)+(1.5cm,-1cm)$) rectangle  ($(current page.south east)+(0cm,1.5cm)$) ;
 \end{tikzpicture}
 \begin{tikzpicture}[remember picture,overlay]
-\draw [ultra thick, draw=mycol, fill=white, fill opacity=0.2] ($(current page.north west)+(6.2cm,-3cm)$) rectangle  ($(current page.south east)+(0cm,4cm)$) ;
+\draw [ultra thick, draw=black, fill=white, fill opacity=0.2] ($(current page.north west)+(6.2cm,-3cm)$) rectangle  ($(current page.south east)+(0cm,4cm)$) ;
 \end{tikzpicture}
 \raggedright
 \hspace{0.1\textwidth}
@@ -215,19 +215,18 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[6\baselineskip]
 \newgeometry{right=2cm,top=5cm}
 \hoffset -0.5cm
 \thispagestyle{empty}
+\pagecolor{mycol}
 \newgeometry{left=1cm,right=5.5cm}
 \begin{tikzpicture}[remember picture,overlay]
-\draw [ultra thin, draw=gray, fill=mycol, fill opacity=0.2	] ($(current page.north west)+(2cm,-2cm)$) rectangle  ($(current page.south east)+(-2cm,3cm)$) ;
+\draw [ultra thin, draw=black, fill=white, fill opacity=0.2	] ($(current page.north west)+(2cm,-2cm)$) rectangle  ($(current page.south east)+(-2cm,3cm)$) ;
 \end{tikzpicture}
 
-\begin{tcolorbox}
+%\begin{tcolorbox}[colback=white]
 
 \tableofcontents
 \clearpage
 
 \addcontentsline{toc}{section}{sadržaj}
-\clearpage
-
 \addtocontents{toc}{\vspace{1em}}
 \clearpage
 
@@ -237,29 +236,27 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[6\baselineskip]
 
 \pagenumbering{arabic}
 
-\end{tcolorbox}
+%\end{tcolorbox}
 \restoregeometry
 \pagecolor{white}
 
 \newpage
 
-\newgeometry{bottom=1in, top=1in}
+\newgeometry{bottom=1in, top=1in,marginparwidth=1.8in,marginparsep=.25in}
 \section{Skupovi}
+
+\reversemarginpar
+\color{white}
+\marginnote{\begin{tcolorbox}
+Skupovi su osnovni alat za učenje pa čak i za malu djecu. Kao bebe, oni nauče razlikovati "mene" od "mama" i "tata". Kao mališani nauče razlikovati i kategorisati objekte kao članove skupa po veličini, boji, ili obliku. TV emisija "Ulice sezama" uči djecu da prave skupove kroz igru. "Jedna od tih stvari je različita od ostalih."\end{tcolorbox}}[5cm]
+\color{black}
 
 \bigskip\bigskip
 \begin{Large}
-Jedan od osnovnih ljudskih nagona jeste da sortira i klasificira stvari. Razmislite, naprimjer. Koliko različitih skupova ste vi član? Ako krenete sa nekim jednostavnim kategorijama, kao jeste li muško ili žensko, vaša starosna grupa, država u kojoj živite. Tada ćete možda razmišljati i o etničkoj pripadnosti vaše porodice, sociološko-ekonomskoj grupi, nacionalnosti. Ovo su samo neke od mnogobrojnih načina kako bi mogli opisati sebe drugim ljudima.
-
-Kakva je korist od ovakve kategorizacije? Kao što ćete vidjeti u nastavku ovog poglavlja, sortirajući stvari po skupovima pomaže vam organizirati i urediti vaš svijet. U mogućnosti ste da vladate velikim količinama informacija. Skupovi su učevni alat koji pomaže da se odgovori na pitanje: "Koje su karakteristike grupe?"
-
+Jedan od osnovnih ljudskih nagona jeste da sortira i klasificira stvari. Razmislite, naprimjer. Koliko različitih skupova ste vi član? Ako krenete sa nekim jednostavnim kategorijama, kao jeste li muško ili žensko, vaša starosna grupa, država u kojoj živite. Tada ćete možda razmišljati i o etničkoj pripadnosti vaše porodice, sociološko-ekonomskoj grupi, nacionalnosti. Ovo su samo neke od mnogobrojnih načina kako bi mogli opisati sebe drugim ljudima.\par
+Kakva je korist od ovakve kategorizacije? Kao što ćete vidjeti u nastavku ovog poglavlja, sortirajući stvari po skupovima pomaže vam organizirati i urediti vaš svijet. U mogućnosti ste da vladate velikim količinama informacija. Skupovi su učevni alat koji pomaže da se odgovori na pitanje: "Koje su karakteristike grupe?"\par
 Skupovi postavljaju temelje ostalim matematičkim oblastima, poput logike i apstraktne algebre. Ustvari, knjiga \textit{El\' ements de Math\' ematique}, napisana od strane grupe francuskog matematičara pod pseudonimom "Nicolas Bourbaki", kaže: "U današnjici je moguće, logički govoreći: "U današnjici je moguće, logički rečeno, "
-\bigskip
-\begin{tcolorbox}
-Skupovi su osnovni alat za učenje pa čak i za malu djecu. Kao bebe, oni nauče razlikovati "mene" od "mama" i "tata". Kao mališani nauče razlikovati i kategorisati objekte kao članove skupa po veličini, boji, ili obliku. TV emisija "Ulice sezama" uči djecu da prave skupove kroz igru. "Jedna od tih stvari je različita od ostalih."
-\end{tcolorbox}
-\end{Large}
-\newpage
-
+\end{Large}\\[\baselineskip]
 \subsection{Koncepti skupa}
 
 Svakodnevno srešemo skupove u našim životima u raznim situacijama. Skup je kolekcija objekata, koji se nazivaju \textbf{elementi} ili \textbf{članovi} skupa. Naprimjer, Sjedinjena Američka država je kolekcija ili skup 50 manjih država. 50 pojedinih država su članovi ili elementi jednog skupa koji se naziva Sjedinjene Američke države.
