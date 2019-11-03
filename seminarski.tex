@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{pstricks}
-
+	
 \usepackage{tcolorbox}
 
 \usepackage{titlesec,letltxmacro}
@@ -173,32 +173,53 @@
 \usepackage{caption}
 \captionsetup[table]{name=Tabela}
 
+\usetikzlibrary{positioning}
+
+\usepackage{rotating}
+\usepackage{marginnote}
+\usepackage{graphicx}
+
 \begin{document}
 
+\newgeometry{bottom=1in,right=1in,left=1in}
 \begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+\draw [ultra thick, draw=white, fill=mycol, fill opacity=0.2] ($(current page.north west)+(1.5cm,-1cm)$) rectangle  ($(current page.south east)+(0cm,1.5cm)$) ;
+\end{tikzpicture}
+\begin{tikzpicture}[remember picture,overlay]
+\draw [ultra thick, draw=mycol, fill=white, fill opacity=0.2] ($(current page.north west)+(6.2cm,-3cm)$) rectangle  ($(current page.south east)+(0cm,4cm)$) ;
+\end{tikzpicture}
 \raggedright
-\rule{1pt}{\textheight}
-\hspace{0.05\textwidth}
+\hspace{0.1\textwidth}
 \parbox[b]{0.75\textwidth}{
 
-{\large{Prirodno-matematički fakultet\\
+\reversemarginpar
+\color{white}
+\marginnote{\begin{turn}{}	{\large\textit{seminarski rad}}\end{turn}\\[\baselineskip]
+\begin{turn}{90}{\Huge\bfseries \scalebox{5}{\textbf{SKUPOVI}}}\end{turn}\vspace{1.5cm} \scalebox{3}{2019}}
+\color{black}
+\vspace{1cm}
+{\Large{Prirodno-matematički fakultet\\
 Univerzitet u Tuzli\\
 Odsjek: \textbf{Matematika}\\
-Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
-{\Huge\bfseries Skupovi}\\[1\baselineskip]
-{\large\textit{-seminarski rad-}}\\[5\baselineskip]
-{\Large\textsc{halilović adis}}
+Predmet: \textbf{Uvod u programske pakete}}}\\[6\baselineskip]
 
-\vspace{0.5\textheight}
-
-{\noindent Oktobar 2019}\\[\baselineskip]
+\begin{tikzpicture}
+\node[inner sep=0pt] (whitehead) at (0,0)
+    {\includegraphics[width=0.8\textwidth]{sets_with_notations_back.eps}};
+\end{tikzpicture}\\[8\baselineskip]
+{\noindent {\Large\textsc{\textbf{halilović adis}}}}\\[\baselineskip]
 }
 \end{titlepage}
 
 \newgeometry{right=2cm,top=5cm}
 \hoffset -0.5cm
 \thispagestyle{empty}
-\pagecolor{gray}
+\newgeometry{left=1cm,right=5.5cm}
+\begin{tikzpicture}[remember picture,overlay]
+\draw [ultra thin, draw=gray, fill=mycol, fill opacity=0.2	] ($(current page.north west)+(2cm,-2cm)$) rectangle  ($(current page.south east)+(-2cm,3cm)$) ;
+\end{tikzpicture}
+
 \begin{tcolorbox}
 
 \tableofcontents
