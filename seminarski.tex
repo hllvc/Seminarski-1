@@ -1,7 +1,7 @@
 \PassOptionsToPackage{table,xcdraw,dvipsname}{xcolor}
 \documentclass[a4paper,14pt,svgnames]{article}
 
-\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage[shortlabels]{enumitem}
 \usepackage{fancyhdr}
 \usepackage[T1]{fontenc}
@@ -150,10 +150,28 @@
 \begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
 \begin{center}
 #3
-\hfill $\vartriangle$
+
+\vspace{0.5em}\hfill $\vartriangle$
 \end{center}
 \end{tcolorbox}
 \end{tcolorbox}}
+
+\usepackage{pagecolor}
+
+%\newlist{oddenumerate}{enumerate}{1}
+%\setlist[oddenumerate]{start=0,label=\theoddenumeratei.}
+%\makeatletter
+%\renewcommand\theoddenumeratei{\@arabic{\numexpr2*\value{oddenumeratei}+1}}
+%\makeatother
+%
+%\newlist{evenenumerate}{enumerate}{1}
+%\setlist[evenenumerate]{start=1,label=\theevenenumeratei.}
+%\makeatletter
+%\renewcommand\theevenenumeratei{\@arabic{\numexpr2*\value{evenenumeratei}+1}}
+%\makeatother
+
+\usepackage{caption}
+\captionsetup[table]{name=Tabela}
 
 \begin{document}
 
@@ -180,6 +198,9 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
 \newgeometry{right=2cm,top=5cm}
 \hoffset -0.5cm
 \thispagestyle{empty}
+\pagecolor{gray}
+\begin{tcolorbox}
+
 \tableofcontents
 \clearpage
 
@@ -194,7 +215,10 @@ Predmet: \textbf{Uvod u programske pakete}}}\\[7\baselineskip]
 \clearpage
 
 \pagenumbering{arabic}
+
+\end{tcolorbox}
 \restoregeometry
+\pagecolor{white}
 
 \newpage
 
@@ -240,44 +264,30 @@ $N = \{1, 2, 3, 4, 5, ... \}$
 \end{center}
 \end{tcolorbox}
 Tri tačke nakon 5, nazivaju se \textit{elipsa}, i označavaju da elementi skupa nastavljaju dalje na isti način. Ako se nakon elipse pojavi neki elemenat, znači da elementi idu na isti način sve do tog elementa uključujući i njega. Ovakva notacija prikazana je na primjeru 2b.
-
-\begin{tcolorbox}[title=\large \examplecounter\hfill\small\textbf{"Skup u formi popisa"}]
-Predstaviti sljedeće u formi popisa.\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\example{Skup u formi popisa}{Predstaviti sljedeće u formi popisa.\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Skup $A$ je skup prirodnih brojeva manjih od 4.
 \item Skup $B$ je skup prirodnih brojeva manjih ili jednako 70.
 \item Skup $P$ je skup planeta sunčevog sistema.
-\end{enumerate}
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
-\begin{center}
-\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Prirodni brojevi manji od 4 su 1, 2 i 3. Prema tome, skup $A$ u formi popisa je $A=\{1,2,3\}$
 \item $B=\{1, 2, 3, 4, ... , 70\}$. Broj 70 nakon 3 tačke znači da se brojevi nastavljaju na isti način sve do 70.
 \item $P=\{$Merkur, Venera, Zemlja, Mars, Jupiter, Saturn, Uran, Neptun, Pluton$\}$.
-\end{enumerate}
-\end{center}
-\end{tcolorbox}
-\end{tcolorbox}
+\end{enumerate}}
 
-\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Riječ \textit{uključujući}"}]
-Sljedeće napiši u formi popisa.
+\example{Riječ \textit{uključujući}}{Sljedeće napiši u formi popisa.
 \begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Skup prirodnih brojeva između 5 i 8.
 \item Skup prirodnih brojeva između 5 i 8, uključujući.
-\end{enumerate}
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
-\begin{center}
-\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item $A=\{6, 7\}$.
 \item $B=\{5, 6, 7, 8\}$. Primjetite da riječ \textit{uključujuči} pokazuje na to da su i brojevi između 5 i 8 unutar skupa.
-\end{enumerate}
-\end{center}
-\end{tcolorbox}
-\end{tcolorbox}
+\end{enumerate}}
 
 Simbol \textbf{$\in$}, koji se čita, elemenat je, koristi se za označavanje članova u skupu. U primjeru 3, 6 je elemenat skupa A, pišemo $6\in A$. Također možemo napisati $6\in \{6, 7\}$. Isto tako $8\notin A$, što znači da 8 nije elemenat skupa A.
 
-Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) može se koristiti da simbolizira skup. Navedena notacija skupa se često koristi u algebri. U nastavku primjer ilustrira njegov oblik.\\
-\vfill
+Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) može se koristiti da simbolizira skup. Navedena notacija skupa se često koristi u algebri. U nastavku primjer ilustrira njegov oblik.\smallskip
+
+\begin{center}
 \begin{pspicture}(0,0)(11,2.5)
 %\psgrid(0,0)(11,2.5)
 \rput(1,2){$D$}
@@ -304,49 +314,29 @@ Notacija za kreiranje skupa (koja se ponekad naziva i notacija generatra skupa) 
 \rput(10,0.7){$x$ zadovoljava uslove}
 \rput(10,0.4){da bi bio dio skupa}
 \end{pspicture}
+\end{center}
 \medskip
 
 Uzmimo u obzir $E=\{x|x\in N$ i $x\>10\}$. Izraz se čita kao "Skup $E$ je skup svih elemenata x takvih da je x veće od 10." Uslovi koje $x$ mora ispuniti da bi bio elemenat skupa je $x\in N$, što znači da $x$ mora biti prirodan broj, i $x\> 10$, što znači da $x$ mora biti veće od 10. Brojevi koji ispunjavaju oba uvjeta su elementi skupa prirodnih brojeva većih od 10. Skup u formi popisa izgleda ovako
 $$E=\{11, 12, 13, 14, ...\ \}$$
 
-\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Korištenje notacije za kreiranje skupova"}]
-\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\example{Korištenje notacije za kreiranje skupova}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Napisati skup $B=\{1, 2, 3, 4, 5\}$ u obliku notacije za kreiranje skupa
 \item Napiši, riječima, kako bi pročitao notaciju za kreiranje skupa $B$
-\end{enumerate}
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
-\begin{center}
-\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Prema tome da se skup $B$ sastoji od prirodnih brojeva manjih od 6, pišemo $$B=\{x|x\in N\text { i } x< 6\}$$ Još jedan prihvatljiv odgovor je $B=\{x|x\in N$ i $x\leqslant 5\}$.
 \item Skup $B$ je skup svih elemenata $x$ takvih da je $x$ prirodan broj i da je manji od 6.
-\end{enumerate}
-\end{center}
-\end{tcolorbox}
-\end{tcolorbox}
+\end{enumerate}}
 
-\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Forma popisa u notaciji građenja skupova"}]
-\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\example{Forma popisa u notaciji građenja skupova}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item Napisati skup $S = \{$Maine, Maryland, Massachusetts, Michigen, Minnesota, Mississippi, Missouri, Montana$\}$ u notaciji građenja skupova.
 \item Napisati riječima kako bi pročitao/la skup $S$ u notaciji iz a).
-\end{enumerate}
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
-\begin{center}
-\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
 \item $S=\{x|x$ je država u SAD-u čije ime počinje sa M$\}$.
 \item Skup $S$ je skup svih elemenata x takvih da je x država SAD-a čije ime počinje sa slovom M.
-\end{enumerate}
-\end{center}
-\end{tcolorbox}
-\end{tcolorbox}
+\end{enumerate}}
 
-\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Notacija građenja skupova u formi popisa"}]
-Napisati $A=\{x|x\in N$ i $2\leqslant x<8\}$ u formi popisa.
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
-\begin{center}
-$A=\{2, 3, 4, 5, 6, 7\}$
-\end{center}
-\end{tcolorbox}
-\end{tcolorbox}
+\example{Notacija građenja skupova u formi popisa}{Napisati $A=\{x|x\in N$ i $2\leqslant x<8\}$ u formi popisa.}{$A=\{2, 3, 4, 5, 6, 7\}$}
 
 Za skup se kaže da je \textbf{konačan}, ako ne sadrži elemente ili broj elemenata u skupu je prirodan broj. Skup $B=\{2, 4, 6, 8, 10\}$ je konačan skup zato što je broj elemenata skupa 5, a 5 je prirodan broj. Skup koji nije konačan naziva se \textbf{beskonačan} skup. Skup brojivih brojeva je jedan primjer beskonačnog skupa. O beskonačnim skupovima govorit ćemo u Poglavlju ...\par\smallskip
 Još jedan bitan koncept jeste jednakost skupova.\smallskip
@@ -403,14 +393,8 @@ Neki skupovi ne sadrže ni jedan elemenat, kao naprimjer skup zebri koje su u ov
 Skup koji ne sadrži elemente naziva se \textbf{prazan skup} ili \textbf{nula skup} i simbolično se označava sa $\{\ \}$ ili $\varnothing$.
 \end{tcolorbox}
 Imajte na umu da ${\varnothing}$ nije prazan skup. Ovaj skup sadrži elemenat $\varnothing$ i ima kardinalnost 1. Skup $\{0\}$ također nije prazan skup zato što sadrži elemenat $0$. I on ima kardinalnost 1.
-\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"Rješenja prirodnih brojeva"}]
-Naznalite skup prirodnih brojeva koji zadovoljavaju jednačinu $x+2=0$.
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
-\begin{center}
-Vrijednosti koje zadovoljavaju jednačinu moraju biti takve da jednačina bude tačna. Samo broj $-2$ zadovoljava ovu jednačinu. Zbog toga što $-2$ nije prirodan bro, rješenje iove jednačine je $\{\ \}$ ili $\varnothing$.
-\end{center}
-\end{tcolorbox}
-\end{tcolorbox}
+
+\example{Rješenja prirodnih brojeva}{Naznalite skup prirodnih brojeva koji zadovoljavaju jednačinu $x+2=0$.}{Vrijednosti koje zadovoljavaju jednačinu moraju biti takve da jednačina bude tačna. Samo broj $-2$ zadovoljava ovu jednačinu. Zbog toga što $-2$ nije prirodan bro, rješenje iove jednačine je $\{\ \}$ ili $\varnothing$.}
 
 \subsubsection{\textsc{univerzalni skup}}
 Još jedan bitan skup jeste \textbf{univerzalni skup}.
@@ -435,8 +419,6 @@ Kada je dat univerzalni skup, samo elementi univerzalnog skupa mogu se razmatrat
 \item Šta je univerzalni skup?
 \item Šta je prazan skup?
 \end{enumerate}
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
 \textbf{ZADACI ZA VJEŽBU VJEŠTINE}\\
 \textit{U zadacima od 10 do 12, odredite da li su skupovi dobro definisani.}
 \begin{enumerate}
@@ -445,6 +427,8 @@ Kada je dat univerzalni skup, samo elementi univerzalnog skupa mogu se razmatrat
 \item Skup ljudi koji posjeduju velike pse
 \item Skup učenika razreda koji su rođeni u Bosni i Hercegovini
 \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
 \textit{U zadacima od 13 do 24, odredite da li je skup konačan ili beskonačan}.
 \begin{enumerate}
 \setcounter{enumi}{12}
@@ -456,5 +440,117 @@ Kada je dat univerzalni skup, samo elementi univerzalnog skupa mogu se razmatrat
 \end{minipage}
 \end{tcolorbox}
 
+\newpage
+\section{Podskupovi}
+U našem složenom svijetu, inače veće skupove razbijamo na manje skupove s kojim nam je lakše raditi. takve skupove nazivamo \textit{podskupovi}. Napriimjer, uzmite u obzir skup ljudi u vašem odjeljenju. Prepostavimo da kategorišemo ljude po prvom slovu njihovog prezimena(A, B, C, idt.). Kada to odradimo, svaki od novih skupova može se smatrati podskupom orginalnog skupa. Svaki od ovih podskupova može se dalje  razdvajati. Naprimjer, osobe kod kojih prezime počinje sa A možemo kategorisati po tome jesu li muškog ili ženskog spola ili po njihovim godinama. Svaka od ovih kolekcija je podskup. Početni skup može imati mnogo različitih podskupova.
+\begin{tcolorbox}
+Skup $A$ je \textbf{podskup} skupa $B$, simbolično pišemo $A\subseteq B$, ako i samo ako su elementi skupa $A$ takožer elementi skupa $B$.
+\end{tcolorbox}
+
+Simbol $A\nsubseteq B$ označava da "skup je $A$ podskup skupa $B$". Simbol $\nsubseteq$ znači "nije podskup". Iz toga, $A\nsubseteq B$ znači da skup $A$ nije podskup skupa $B$. \textit{Da pokažemo to da skup $A$ nije podskup skupa $B$, moramo pronaći makar jedan elemenat skupa $A$ koji nije elemenat skupa $B$.}
+
+\example{Da li je $A$ podskup?}{Odrediti da li je skup $A$ podskup skupa $B$.
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item $A=\{$krastavac, paradajz, paprika$\}$
+$B=\{$paradajz, sir, krastavac, paprika$\}$
+\item $A=\{2, 3, 4, 5\}$\quad $B=\{2, 3\}$
+\item $A=\{x|x$ žuto voće$\}$
+$B=\{$ crveno voće$\}$
+\item $A=\{$kašika, viljuška, nož$\}$
+$B=\{$nož, kašika, viljuška$\}$
+\end{enumerate}}{%
+{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item Svi elementi skupa $A$ sadržani su u skupu $B$, prema tome $A\subseteq B$.
+\item Elementi 4 i 5 su u skupu $A$ ali ne u skupu $B$, stoga $A\nsubseteq B$ ($A$ nije podskup od $B$). Mežutim, u ovom primjeru svi elementi skupa $B$ sadržani su u skupu $A$; stoga, $B\subseteq A$.
+\item Postoji voće, kao naprimjer banane, koje su iz skupa $A$ ali ne iz skupa $B$,pa $A\nsubseteq B$.
+\item Svi elementi skupa $A$ sadržani su u skupu $B$, prema tome $A\subseteq B$. Primjetite da je $A=$ skup $B$.
+\end{enumerate}}}
+
+\subsubsection{\textsc{odgovarajući podskupovi}}
+\begin{tcolorbox}
+Skup $A$ je \textbf{odgovarajući podskup} skupa $B$, simbolično pišemo $A\subset B$, ako i samo ako su svi elementi skupa $A$ također elementi skupa $B$ i skup $A\neq$ skup $B$(to jest, skup $B$ mora imati makar jedan elemenat koji se ne nalazi u skupu $A$).
+\end{tcolorbox}
+
+Uzmite u obzir da $A=\{$crvena, plava, žuta$\}$ i $B=\{$crvena, narandžasta, žuta, zelena, plava, ljubičasta$\}$. Skup $A$ je \textit{podskup} skupa $B$, $A\subseteq B$, zato što je svaki elemenat skupa $A$ također elemenat skupa $B$. Skup $A$ je također \textit{odgovarajući skup} skupa $B$, $A\subset B$, zato šsto skup $A$ i skup $B$ nisu jednaki. Sada uzmimo u obzir skup $C=\{$auto, autobus, voz$\}$ i skup $D=\{$voz, auto, autobus$\}$. Skup $C$ je podskup skupa $D$, $C\subseteq D$, zato što je svaki elemenat skupa $C$ također elemenat skupa $D$. Međutim, skup $C$, nije odgovarajući podskup skupa $D$, $C\not\subset D$, zato što su skup $C$ i skup $D$ jednaki skupovi.
+\newpage
+
+\example{Da li je skup odgovarajući podskup?}{Odrediti da li je skup $A$ odgovarajući podskup skupa $B$.
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item $A=\{$Korveta, Vajper, BMW$\}$
+$B=\{$Vajper, BMW, Kamero, Korveta, Mustang$\}$
+\item $A=\{a, b, c, d\}$\quad $B=\{a, c, b, d\}$
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item Svi elementi skupa $A$ su sadržani u skupu $B$ i $B$ nisu jednaki; iz toga slijedi, $A\subset B$.
+\item Skup $A=$ skup $B$, prema tome $A\not\subset B$. (Međutim, $A\subseteq B.$)
+\end{enumerate}}
+
+Svaki skup je podskup samoga sebe, ali nijedan skup nije odgovarajući podskup sebe. Za sve skupove $A$, $A\subseteq A$, ali $A\not\subset A$. Naprimjer, ako  $A=\{1, 2, 3\}$, onda $A\subseteq A$ zato što je svaki elemenat skupa $A$ sadržan u skupu $A$, ali $A\not\subset A$ zato što je skup $A=$ skupu $A$.\par
+Neka $A = \{\ \}$ i $B=\{1, 2, 3, 4\}$. Da li je $A\subseteq B$? Da bi poakazali $A\nsubseteq B$, treba pronaći makar jedan elemenat skupa $A$ koji nije elemenat skupa $B$. pošto ovo ne može biti odrađeno, $A\subseteq B$ mora biti tačno. Korsteći se istim rezonom, možemo pokazati da \textit{prazan  skup je podskup svih skupova, uključujući i samoga sebe.}
+
+\example{Elemenat ili podskup?}{\begin{minipage}{\textwidth}
+Odredite da li su sljedeći izrazi tačni.
+\end{minipage}\\
+
+\begin{minipage}{0.5\textwidth}
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item $3\in\{3, 4, 5\}$
+\item[c)] $\{3\}\in \{\{3\}, \{4\}, \{5\}\}$
+\item[e)] $3\subseteq \{3, 4, 5\}$
+\end{enumerate}
+\end{minipage}\begin{minipage}{0.5\textwidth}
+\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item[b)] $\{3\}\in \{3, 4, 5\}$
+\item[d)] $\{3\}\subseteq \{3, 4, 5\}$
+\item[f)] $\{\ \}\subseteq \{3, 4, 5\}$
+\end{enumerate}
+\end{minipage}}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item $3\in \{3, 4, 5\}$ je tačan izraz zato što je 3 član skupa $\{3, 4, 5\}$.
+\item $\{3\}\in \{3, 4, 5\}$ je netačan izraz zato što je $\{3\}$ skup, a skup $\{3\}$ nije elemenat skupa $\}3, 4, 5\}$.
+\item $\{3\}\in \{\{3\}, \{4\}, \{5\}\}$ je tačan izraz zato što je $\{3\}$ elemenat skupa. Elementi skupa $\{\{3\}, \{4\}, \{5\}\}$ su sami sobom skupovi.
+\item $\{3\}\subseteq \{3, 4, 5\}$ je tačan izraz zato što je svaki elemenat prvog skupa ujedno elemenat drugog skupa.
+\item $3\subseteq \{3, 4, 5\}$ je netačan izraz zato što 3 nije u velikim zagradama, pa nije skup i prema tome ne može biti podksup. 3 je elemenat skupa kako je naglašeno u dijelu a).
+\item $\{\ \}\subseteq \{3, 4, 5\}$ je tačan izraz zato što je prazan skup podskup svakog skupa.
+\end{enumerate}}
+
+\subsubsection{\textsc{broj podskupova}}
+Koliko se različitih podskupova može napraviti od jednog ponuđenog skupa? Prazan skup nema elemenata i ima tačno jedan podskup. A skup sa tri elementa ima osam podskupova. Pogledajte tabelu 1 na strani 10. koliko podskupova sadrži skup sa četiri elementa?
+\newpage
+
+\begin{table}[h!]
+\Large
+\centering
+\begin{tabular}{lll}
+\hline
+\textbf{Skup} & \textbf{Podskup}                                                                                                 & \textbf{Broj podskupova}     \\ \hline
+$\{ \}$         & $\{ \}$                                                                                                            & $1=2^0$       \\ \hline
+$\{a\}$         & \begin{tabular}[c]{@{}l@{}}$\{a\}$\\ $\{ \}$\end{tabular}                                                            & $2=2^1$       \\ \hline
+$\{a, b\}$      & \begin{tabular}[c]{@{}l@{}}$\{a, b\}$\\ $\{a\}, \{b\}$\\ $\{ \}$\end{tabular}                                          & $4=2\times 2=2^2$   \\ \hline
+$\{a, b, c\}$   & \begin{tabular}[c]{@{}l@{}}$\{a, b, c\}$\\ $\{a, b\}, \{a, c\}, \{b, c\}$\\ $\{a\}, \{b\}, \{c\}$\\ $\{ \}$\end{tabular} & $8=2\times 2\times 2=2^3$ \\ \hline
+\end{tabular}
+\caption{Broj podskupova}
+\end{table}
+
+Nastavljajuči ovu tabelu sa većim i većim skupovima, možemo razviti generalnu formulu za računanje broja različitih podskupova datog skupa.
+
+\begin{tcolorbox}
+\textbf{Broj različitih skupova} konačnog skupa $A$ je $2^n$m gdje $n$ predstavlja broj elemenata skupa $A$.
+\end{tcolorbox}
+
+\example{Različiti podskupovi}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item Odredite broj različitih podskupova skupa $\{$S, L, E, D$\}$.
+\item Napiđite sve raličite podskupove skupa $\{$S, L, E, D$\}$.
+\item Koliko različitih podskupova su pravilni podskupovi?
+\end{enumerate}}{\begin{enumerate}[label=\alph*),leftmargin=0.5cm]
+\item Broj elemenata skupa je 4, prema tome, broj različitih skupova je $2^4=2\times 2 \times 2 \times 2=16$.
+\item \begin{tabular}[t]{lllll}
+$\{S, L, E, D\}$ & $\{S, L, E\}$ & $\{S, L\}$ & $\{S\}$ & $\{ \}$ \\
+               & $\{S, L, D\}$ & $\{S, E\}$ & $\{L\}$ &       \\
+               & $\{S, E, D\}$ & $\{S, D\}$ & $\{E\}$ &       \\
+               & $\{L, E, D\}$ & $\{L, E\}$ & $\{D\}$ &       \\
+               &             & $\{L, D\}$ &       &       \\
+               &             & $\{E, D\}$ &       &      
+\end{tabular}
+\item Pravilnih podskupova ima 15. Svi podskupovi osim $\{S, L, E, D\}$ su pravilni podskupovi.
+\end{enumerate}}
 
 \end{document}
