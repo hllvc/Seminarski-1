@@ -10,6 +10,7 @@
 \usepackage{pstricks}
 	
 \usepackage{tcolorbox}
+\tcbuselibrary{listings,breakable}
 
 \usepackage{titlesec,letltxmacro}
 \usepackage[table,xcdraw,dvipsname]{xcolor}
@@ -145,9 +146,9 @@
 }
 \makeatother
 
-\newcommand{\example}[3]{\begin{tcolorbox}[title=\large \examplecounter \hfill\small\textbf{"#1"}]
+\newcommand{\example}[3]{\begin{tcolorbox}[breakable,title=\large \examplecounter \hfill\small\textbf{"#1"},pad at break=1mm]
 #2
-\begin{tcolorbox}[title=\small \textbf{RJEŠENJE},colback=white]
+\begin{tcolorbox}[breakable,title=\small \textbf{RJEŠENJE},colback=white,pad at break=1mm]
 \begin{center}
 #3
 
@@ -441,7 +442,6 @@ Imajte na umu da ${\varnothing}$ nije prazan skup. Ovaj skup sadrži elemenat $\
 
 \example{Rješenja prirodnih brojeva}{Naznalite skup prirodnih brojeva koji zadovoljavaju jednačinu $x+2=0$.}{Vrijednosti koje zadovoljavaju jednačinu moraju biti takve da jednačina bude tačna. Samo broj $-2$ zadovoljava ovu jednačinu. Zbog toga što $-2$ nije prirodan bro, rješenje iove jednačine je $\{\ \}$ ili $\varnothing$.}
 
-\newpage
 \subsubsection{\textsc{univerzalni skup}}
 \addtocontents{toc}{\vspace{1em}}
 \bigskip\bigskip
@@ -546,7 +546,6 @@ $B=\{$nož, kašika, viljuška$\}$
 \item Svi elementi skupa $A$ sadržani su u skupu $B$, prema tome $A\subseteq B$. Primjetite da je $A=$ skup $B$.
 \end{enumerate}}}
 
-\newpage
 \subsubsection{\textsc{odgovarajući podskupovi}}
 \bigskip\bigskip
 \begin{tcolorbox}
@@ -598,7 +597,7 @@ Odredite da li su sljedeći izrazi tačni.
 \bigskip\bigskip
 Koliko se različitih podskupova može napraviti od jednog ponuđenog skupa? Prazan skup nema elemenata i ima tačno jedan podskup. A skup sa tri elementa ima osam podskupova. Pogledajte tabelu 1 na strani 10. koliko podskupova sadrži skup sa četiri elementa?\medskip
 
-\begin{table}[h!]
+\begin{table}[h]
 \Large
 \centering
 \begin{tabular}{lll}
